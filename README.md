@@ -1,1 +1,2 @@
-# soft_fin
+# 金融组python程序
+
