@@ -42,7 +42,7 @@ def generate_recommend_option_delta(protfolio_id,asset_id,asset_mount,cash):
 def generate_recommend_option_gamma(protfolio_id,asset_id,asset_mount,cash):
     return backtest.options.generate_recommend_option_gamma(protfolio_id,asset_id,asset_mount,cash)
 
-def get_portfolio_beta(asset_id,weight_list):
+def portfolio_beta(asset_id,weight_list):
     return backtest.options.get_portfolio_beta(asset_id,weight_list)
 
 def retrain_beta_model(protfolio_id,asset_id,asset_mount,cash,futures,num=0):
