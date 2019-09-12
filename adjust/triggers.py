@@ -10,7 +10,8 @@ import numpy as np
 import talib
 import json
 import options
-import get_stock_info as gsi# 自定义py文件
+import graph.get_stock_info as gsi# 自定义py文件
+import sys
 
 
 # In[60]:
