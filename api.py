@@ -40,12 +40,11 @@ def retrain_gamma_model(protfolio_id: str, asset_id: list, asset_mount: list, ca
     return backtest.options.retrain_gamma_model(protfolio_id, asset_id, asset_mount, cash, options1, options2, test)
 
 
-def fit_delta(protfolio_id: str, asset_id: list, asset_mount: list, cash: float, options, begin_t: str, end_t: str,
-              test:int=0) -> Series:
+def fit_delta(protfolio_id: str, asset_id: list, asset_mount: list, cash: float, options, begin_t: str, end_t: str,test:int) -> Series:
     return backtest.options.fit_delta(protfolio_id, asset_id, asset_mount, cash, options, begin_t, end_t, test)
 
 
-def fit_gamma(protfolio_id: str, asset_id: list, asset_mount: list, cash: float, options1:str, options2:str, begin_t:str, end_t:str, test:int=0)->Series(float,float):
+def fit_gamma(protfolio_id: str, asset_id: list, asset_mount: list, cash: float, options1:str, options2:str, begin_t:str, end_t:str, test:int)->Series:
     return backtest.options.fit_gamma(protfolio_id, asset_id, asset_mount, cash, options1, options2, begin_t, end_t,
                                       test)
 
