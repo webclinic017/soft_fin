@@ -1,7 +1,7 @@
 from pandas import Series
 
+'''期权期货函数接口'''
 import backtest.options
-
 
 def portfolio_delta(asset_id: list, asset_mount: list, cash: float, begin_t: str, end_t: str) -> Series:
     return backtest.options.portfolio_delta(asset_id, asset_mount, cash, begin_t, end_t)
@@ -89,8 +89,9 @@ def generate_recommend_option_delta(protfolio_id, asset_id, asset_mount, cash):
     return backtest.options.generate_recommend_option_delta(protfolio_id, asset_id, asset_mount, cash)
 
 
-print(get_portfolio_beta(['000001.SZ', '000010.SZ'], [100, 100]))
+#print(get_portfolio_beta(['000001.SZ', '000010.SZ'], [100, 100]))
 
+'''定期调整和条件触发'''
 ###以下是定期调整和条件触发
 import adjust.triggers
 
@@ -145,3 +146,61 @@ def portfolio_volatility(portfolio: str, cash: float, setting: float) -> bool:
 
 def portfolio_diff(portfolio_id: str, portfolio: str, cash: float, alpha: float, top: float) -> bool:
     return adjust.triggers.portfolio_diff(portfolio_id, portfolio, cash, alpha, top)
+
+'''风格因子'''
+import multi.api
+def get_size(ts_code: str, fields: str):
+    return multi.api.get_size(ts_code, fields)
+
+def get_momentum(ts_code: str):
+    return multi.api.get_size(ts_code, fields)
+
+def get_book_to_market(stock_code: str):
+    return multi.api.get_book_to_market(stock_code)
+
+def get_liquidity(stock_code: str):
+    return multi.api.get_liquidity(stock_code)
+    
+
+'''绘图'''
+    #外部接口
+    #预测股票收益率 此处加了功能 如果不是lstm 就是cnn
+    # float_a=pred_stock_return('SH600717', '2018-01-02','lstm')
+    #
+    # #预测股票波动率
+    # float_b=pred_stock_vol('SH600717', '2018-01-02')
+    # portfolio = ['SH600000','SH600717']
+    # shares=[100,200]
+    #
+    # #预测组合收益率
+    # float_c=pred_portfolio_return(portfolio,shares,'2018-01-02')
+    #
+    # #计算组合VaR
+    # float_d=pred_portfolio_var(portfolio,shares,'2018-01-02')
+    #
+    # #计算组合历史收益率 不包括起始日
+    # dates_list_a,floats_list_a = portfolio_history_return(portfolio,shares,'2018-01-02','2019-06-12')
+    #
+    # # 计算组合历史波动率 不包括起始日
+    # dates_list_b,floats_list_b = portfolio_history_vol(portfolio,shares,'2018-01-02','2019-06-12')
+import graph.get_stock_info
+def portfolio_history_return(portfolio,shares,start_date,end_date):
+    return graph.get_stock_info.portfolio_history_return(portfolio,shares,start_date,end_date)
+
+def portfolio_history_vol(portfolio,shares,start_date,end_date):
+    return graph.get_stock_info.portfolio_history_vol(portfolio,shares,start_date,end_date)
+
+def pred_portfolio_var(portfolio,shares,date):
+    return graph.get_stock_info.pred_portfolio_var(portfolio,shares,date)
+
+def pred_stock_vol(stock_code,date):
+    return graph.get_stock_info.pred_stock_vol(stock_code,date)
+
+def pred_stock_return(stock_code,date,method):
+    return graph.get_stock_info.pred_stock_return(stock_code,date,method)
+
+def pred_portfolio_return(portfolio,shares,date,method):
+    return graph.get_stock_info.pred_portfolio_return(portfolio,shares,date,method)
+
+
+
