@@ -202,5 +202,15 @@ def pred_stock_return(stock_code,date,method):
 def pred_portfolio_return(portfolio,shares,date,method):
     return graph.get_stock_info.pred_portfolio_return(portfolio,shares,date,method)
 
-
+def get_all_stocks():
+    conn = sqlite3.connect('data/fin_set.db')
+    cursor = conn.cursor()
+    result = cursor.execute('select name from sqlite_master where type="table" order by name')
+    all = []
+    for row in result:
+        if len(row[0])==8:
+            if row[0][:2]=='SH' or row[0][:2]=='SZ':
+                all.append(row[0])
+    conn.close()
+    return all
 
