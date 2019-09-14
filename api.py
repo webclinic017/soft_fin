@@ -203,6 +203,7 @@ def pred_portfolio_return(portfolio,shares,date,method):
     return graph.get_stock_info.pred_portfolio_return(portfolio,shares,date,method)
 
 def get_all_stocks():
+    import sqlite3
     conn = sqlite3.connect('data/fin_set.db')
     cursor = conn.cursor()
     result = cursor.execute('select name from sqlite_master where type="table" order by name')
