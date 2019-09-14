@@ -4,7 +4,9 @@ import grpc
 from rpc.protoc import regular_adjustment_pb2_grpc
 from rpc.protoc import conditional_trigger_pb2_grpc
 from rpc.protoc import adjustment_and_triggering_of_portfolio_pb2_grpc
-from rpc import RegularAdjustmentService, ConditionalTriggerService, AdjustmentAndTriggeringOfPortfolioService
+from rpc.protoc import stocks_pb2_grpc
+from rpc import RegularAdjustmentService, ConditionalTriggerService, AdjustmentAndTriggeringOfPortfolioService, \
+    StocksService
 
 _ONE_DAY_IN_SECONDS = 60 * 60 * 24
 
@@ -17,6 +19,8 @@ def serve():
         ConditionalTriggerService.ConditionalTriggerService(), server)
     adjustment_and_triggering_of_portfolio_pb2_grpc.add_AdjustmentAndTriggeringOfPortfolioServicer_to_server(
         AdjustmentAndTriggeringOfPortfolioService.AdjustmentAndTriggeringOfPortfolioService(), server)
+    stocks_pb2_grpc.add_StocksServicer_to_server(
+        StocksService.StocksService(), server)
 
     server.add_insecure_port('[::]:50051')
     server.start()
