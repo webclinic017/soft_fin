@@ -23,12 +23,12 @@ def portfolio_theta(asset_id: list, asset_mount: list, cash: float, begin_t: str
     return backtest.options.portfolio_theta(asset_id, asset_mount, cash, begin_t, end_t)
 
 
-def portfolio_volatility(asset_id: list, asset_mount: list, cash: float, begin_t: str, end_t: str, time: int) -> Series:
+def portfolio_volatility(asset_id: list, asset_mount: list, cash: float, begin_t: str, end_t: str, time: int=10) -> Series:
     return backtest.options.portfolio_volatility(asset_id, asset_mount, cash, begin_t, end_t, time)
 
 
 def portfolio_earning_rate(asset_id: list, asset_mount: list, cash: float, begin_t: str, end_t: str,
-                           time: int) -> Series:
+                           time: int=10) -> Series:
     return backtest.options.portfolio_earning_rate(asset_id, asset_mount, cash, begin_t, end_t, time)
 
 
@@ -40,11 +40,11 @@ def retrain_gamma_model(protfolio_id: str, asset_id: list, asset_mount: list, ca
     return backtest.options.retrain_gamma_model(protfolio_id, asset_id, asset_mount, cash, options1, options2, test)
 
 
-def fit_delta(protfolio_id: str, asset_id: list, asset_mount: list, cash: float, options, begin_t: str, end_t: str,test:int) -> Series:
+def fit_delta(protfolio_id: str, asset_id: list, asset_mount: list, cash: float, options, begin_t: str, end_t: str,test:int=0) -> Series:
     return backtest.options.fit_delta(protfolio_id, asset_id, asset_mount, cash, options, begin_t, end_t, test)
 
 
-def fit_gamma(protfolio_id: str, asset_id: list, asset_mount: list, cash: float, options1:str, options2:str, begin_t:str, end_t:str, test:int)->Series:
+def fit_gamma(protfolio_id: str, asset_id: list, asset_mount: list, cash: float, options1:str, options2:str, begin_t:str, end_t:str, test:int=0)->Series:
     return backtest.options.fit_gamma(protfolio_id, asset_id, asset_mount, cash, options1, options2, begin_t, end_t,
                                       test)
 
@@ -66,11 +66,11 @@ def get_portfolio_beta(asset_id, weight_list):
 
 
 def retrain_beta_model(protfolio_id, asset_id, asset_mount, cash, futures, num=0):
-    return backtest.options.retrain_beta_model(protfolio_id, asset_id, asset_mount, cash, futures, num=0)
+    return backtest.options.retrain_beta_model(protfolio_id, asset_id, asset_mount, cash, futures, num)
 
 
 def train_beta_model(protfolio_id, asset_id, asset_mount, cash, futures, num=0):
-    return backtest.options.train_beta_model(protfolio_id, asset_id, asset_mount, cash, futures, num=0)
+    return backtest.options.train_beta_model(protfolio_id, asset_id, asset_mount, cash, futures, num)
 
 
 def fit_beta(protfolio_id, asset_id, asset_mount, cash, futures, test=0):
