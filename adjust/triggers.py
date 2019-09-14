@@ -5,7 +5,7 @@ import talib
 import sqlite3
 import json
 import options
-import get_stock_info as gsi# 自定义py文件
+import graph.get_stock_info as gsi# 自定义py文件
 def get_stock_info(stock_code: str, time: int, column:list) -> pd.DataFrame:
     cnx = sqlite3.connect('fin_set.db')
     df = pd.read_sql_query("SELECT "+','.join(column)+" FROM "+stock_code+" ORDER BY DATE DESC LIMIT "+str(time), cnx)

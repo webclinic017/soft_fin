@@ -224,6 +224,9 @@ def get_all_stocks():
 def get_stock_histroy(stock_id):
     conn = sqlite3.connect('data/fin_set.db')
     cursor = conn.cursor()
-    result = cursor.execute('select date,open,high,low,close,colume,amt from '+stock_id)
-    return result
+    result = cursor.execute('select date,open,high,low,close,volume,amt from '+stock_id)
+    tmp=[]
+    for i in result:
+        tmp.append(i)
+    return tmp
 
