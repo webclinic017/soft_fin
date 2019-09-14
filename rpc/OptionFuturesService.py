@@ -53,24 +53,55 @@ class OptionFuturesService(option_futures_pb2_grpc.OptionFuturesServicer):
 
     def RetrainDeltaModel(self, request, context):
         print("request: ", request)
+        res = api.retrain_delta_model(
+            request.protfolio_id, request.asset_id, request.asset_amount, request.cash, request.options
+        )
+        return option_futures_pb2.RetrainDeltaModelOutput(value=res)
 
     def RetrainGammaModel(self, request, context):
         print("request: ", request)
+        res = api.retrain_gamma_model(
+            request.protfolio_id, request.asset_id, request.asset_amount, request.cash, request.options1,
+            request.options2
+        )
+        return option_futures_pb2.RetrainGammaModelOutput(value=res)
 
     def FitDelta(self, request, context):
         print("request: ", request)
+        res = api.fit_delta(
+            request.protfolio_id, request.asset_id, request.asset_amount, request.cash, request.options,
+            request.begin_t, request.end_t
+        )
+        return option_futures_pb2.FitDeltaOutput(value=res)
 
     def FitGamma(self, request, context):
         print("request: ", request)
+        res = api.fit_gamma(
+            request.protfolio_id, request.asset_id, request.asset_amount, request.cash, request.options1,
+            request.options2, request.begin_t, request.end_t
+        )
+        return option_futures_pb2.FitGammaOutput(value=res)
 
     def CalOptionAmt(self, request, context):
         print("request: ", request)
+        res = api.cal_option_amt(
+            request.total_value, request.option, request.portion
+        )
+        return option_futures_pb2.CalOptionAmtOutput(value=res)
 
     def GenerateRecommendOptionDelta(self, request, context):
         print("request: ", request)
+        res = api.generate_recommend_option_delta(
+            request.protfolio_id, request.asset_id, request.asset_amount, request.cash
+        )
+        return option_futures_pb2.GenerateRecommendOptionDeltaOutput(value=res)
 
     def GenerateRecommendOptionGamma(self, request, context):
         print("request: ", request)
+        res = api.generate_recommend_option_gamma(
+            request.protfolio_id, request.asset_id, request.asset_amount, request.cash
+        )
+        return option_futures_pb2.GenerateRecommendOptionGammaOutput(value=res)
 
     """
     =========================================================
