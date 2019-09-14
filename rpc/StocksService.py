@@ -6,4 +6,5 @@ class StocksService(stocks_pb2_grpc.StocksServicer):
     def GetAllStocks(self, request, context):
         print("request: ", request)
         res = api.get_all_stocks()
+        print("res: ", res)
         return stocks_pb2.GetAllStocksOutput(value=res)
