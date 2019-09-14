@@ -89,7 +89,10 @@ def generate_recommend_option_delta(protfolio_id, asset_id, asset_mount, cash):
     return backtest.options.generate_recommend_option_delta(protfolio_id, asset_id, asset_mount, cash)
 
 def cal_future_amt(total_value,futures,portion,t1):
-    return return backtest.options.cal_future_amt(total_value,futures,portion,t1)
+    return backtest.options.cal_future_amt(total_value,futures,portion,t1)
+
+def generate_recommend_future(protfolio_id,asset_id,asset_mount,cash):
+    return backtest.options.generate_recommend_future(protfolio_id,asset_id,asset_mount,cash)
 
 
 #print(get_portfolio_beta(['000001.SZ', '000010.SZ'], [100, 100]))
