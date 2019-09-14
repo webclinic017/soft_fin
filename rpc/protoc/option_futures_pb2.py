@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='',
   syntax='proto3',
   serialized_options=_b('\n\037com.example.ffbackend.rpc.protoB\022OptionFuturesProto'),
-  serialized_pb=_b('\n\x14option_futures.proto\"k\n\x13PortfolioDeltaInput\x12\x10\n\x08\x61sset_id\x18\x01 \x03(\t\x12\x14\n\x0c\x61sset_amount\x18\x02 \x03(\t\x12\x0c\n\x04\x63\x61sh\x18\x03 \x01(\x02\x12\x0f\n\x07\x62\x65gin_t\x18\x04 \x01(\t\x12\r\n\x05\x65nd_t\x18\x05 \x01(\t\"%\n\x14PortfolioDeltaOutput\x12\r\n\x05value\x18\x01 \x03(\t\"k\n\x13PortfolioGammaInput\x12\x10\n\x08\x61sset_id\x18\x01 \x03(\t\x12\x14\n\x0c\x61sset_amount\x18\x02 \x03(\t\x12\x0c\n\x04\x63\x61sh\x18\x03 \x01(\x02\x12\x0f\n\x07\x62\x65gin_t\x18\x04 \x01(\t\x12\r\n\x05\x65nd_t\x18\x05 \x01(\t\"%\n\x14PortfolioGammaOutput\x12\r\n\x05value\x18\x01 \x03(\t\"j\n\x12PortfolioVegaInput\x12\x10\n\x08\x61sset_id\x18\x01 \x03(\t\x12\x14\n\x0c\x61sset_amount\x18\x02 \x03(\t\x12\x0c\n\x04\x63\x61sh\x18\x03 \x01(\x02\x12\x0f\n\x07\x62\x65gin_t\x18\x04 \x01(\t\x12\r\n\x05\x65nd_t\x18\x05 \x01(\t\"$\n\x13PortfolioVegaOutput\x12\r\n\x05value\x18\x01 \x03(\t\"k\n\x13PortfolioThetaInput\x12\x10\n\x08\x61sset_id\x18\x01 \x03(\t\x12\x14\n\x0c\x61sset_amount\x18\x02 \x03(\t\x12\x0c\n\x04\x63\x61sh\x18\x03 \x01(\x02\x12\x0f\n\x07\x62\x65gin_t\x18\x04 \x01(\t\x12\r\n\x05\x65nd_t\x18\x05 \x01(\t\"%\n\x14PortfolioThetaOutput\x12\r\n\x05value\x18\x01 \x03(\t\"i\n\x11PortfolioRhoInput\x12\x10\n\x08\x61sset_id\x18\x01 \x03(\t\x12\x14\n\x0c\x61sset_amount\x18\x02 \x03(\t\x12\x0c\n\x04\x63\x61sh\x18\x03 \x01(\x02\x12\x0f\n\x07\x62\x65gin_t\x18\x04 \x01(\t\x12\r\n\x05\x65nd_t\x18\x05 \x01(\t\"#\n\x12PortfolioRhoOutput\x12\r\n\x05value\x18\x01 \x03(\t\"~\n\x18PortfolioVolatilityInput\x12\x10\n\x08\x61sset_id\x18\x01 \x03(\t\x12\x14\n\x0c\x61sset_amount\x18\x02 \x03(\t\x12\x0c\n\x04\x63\x61sh\x18\x03 \x01(\x02\x12\x0f\n\x07\x62\x65gin_t\x18\x04 \x01(\t\x12\r\n\x05\x65nd_t\x18\x05 \x01(\t\x12\x0c\n\x04time\x18\x06 \x01(\x05\"*\n\x19PortfolioVolatilityOutput\x12\r\n\x05value\x18\x01 \x03(\t\"\x7f\n\x19PortfolioEarningRateInput\x12\x10\n\x08\x61sset_id\x18\x01 \x03(\t\x12\x14\n\x0c\x61sset_amount\x18\x02 \x03(\t\x12\x0c\n\x04\x63\x61sh\x18\x03 \x01(\x02\x12\x0f\n\x07\x62\x65gin_t\x18\x04 \x01(\t\x12\r\n\x05\x65nd_t\x18\x05 \x01(\t\x12\x0c\n\x04time\x18\x06 \x01(\x05\"+\n\x1aPortfolioEarningRateOutput\x12\r\n\x05value\x18\x01 \x03(\t\"u\n\x16RetrainDeltaModelInput\x12\x14\n\x0cprotfolio_id\x18\x01 \x01(\t\x12\x10\n\x08\x61sset_id\x18\x02 \x03(\t\x12\x14\n\x0c\x61sset_amount\x18\x03 \x03(\t\x12\x0c\n\x04\x63\x61sh\x18\x04 \x01(\x02\x12\x0f\n\x07options\x18\x05 \x01(\t\"(\n\x17RetrainDeltaModelOutput\x12\r\n\x05value\x18\x01 \x01(\t\"\x88\x01\n\x16RetrainGammaModelInput\x12\x14\n\x0cprotfolio_id\x18\x01 \x01(\t\x12\x10\n\x08\x61sset_id\x18\x02 \x03(\t\x12\x14\n\x0c\x61sset_amount\x18\x03 \x03(\t\x12\x0c\n\x04\x63\x61sh\x18\x04 \x01(\x02\x12\x10\n\x08options1\x18\x05 \x01(\t\x12\x10\n\x08options2\x18\x06 \x01(\t\"(\n\x17RetrainGammaModelOutput\x12\r\n\x05value\x18\x01 \x01(\t\"\x8c\x01\n\rFitDeltaInput\x12\x14\n\x0cprotfolio_id\x18\x01 \x01(\t\x12\x10\n\x08\x61sset_id\x18\x02 \x03(\t\x12\x14\n\x0c\x61sset_amount\x18\x03 \x03(\t\x12\x0c\n\x04\x63\x61sh\x18\x04 \x01(\x02\x12\x0f\n\x07options\x18\x05 \x01(\t\x12\x0f\n\x07\x62\x65gin_t\x18\x06 \x01(\t\x12\r\n\x05\x65nd_t\x18\x07 \x01(\t\"\x1f\n\x0e\x46itDeltaOutput\x12\r\n\x05value\x18\x01 \x03(\x02\"\x9f\x01\n\rFitGammaInput\x12\x14\n\x0cprotfolio_id\x18\x01 \x01(\t\x12\x10\n\x08\x61sset_id\x18\x02 \x03(\t\x12\x14\n\x0c\x61sset_amount\x18\x03 \x03(\t\x12\x0c\n\x04\x63\x61sh\x18\x04 \x01(\x02\x12\x10\n\x08options1\x18\x05 \x01(\t\x12\x10\n\x08options2\x18\x06 \x01(\t\x12\x0f\n\x07\x62\x65gin_t\x18\x07 \x01(\t\x12\r\n\x05\x65nd_t\x18\x08 \x01(\t\"\x1f\n\x0e\x46itGammaOutput\x12\r\n\x05value\x18\x01 \x03(\x02\"I\n\x11\x43\x61lOptionAmtInput\x12\x13\n\x0btotal_value\x18\x01 \x01(\x02\x12\x0e\n\x06option\x18\x02 \x01(\t\x12\x0f\n\x07portion\x18\x03 \x01(\x02\"#\n\x12\x43\x61lOptionAmtOutput\x12\r\n\x05value\x18\x01 \x01(\x05\"o\n!GenerateRecommendOptionDeltaInput\x12\x14\n\x0cprotfolio_id\x18\x01 \x01(\t\x12\x10\n\x08\x61sset_id\x18\x02 \x03(\t\x12\x14\n\x0c\x61sset_amount\x18\x03 \x03(\t\x12\x0c\n\x04\x63\x61sh\x18\x04 \x01(\x02\"3\n\"GenerateRecommendOptionDeltaOutput\x12\r\n\x05value\x18\x01 \x03(\t\"j\n!GenerateRecommendOptionGammaInput\x12\x10\n\x08\x61sset_id\x18\x01 \x03(\t\x12\x14\n\x0c\x61sset_amount\x18\x02 \x03(\t\x12\x0c\n\x04\x63\x61sh\x18\x03 \x01(\x02\x12\x0f\n\x07\x62\x65gin_t\x18\x04 \x01(\t\"3\n\"GenerateRecommendOptionGammaOutput\x12\r\n\x05value\x18\x01 \x03(\t\"j\n\x12PortfolioBetaInput\x12\x10\n\x08\x61sset_id\x18\x01 \x03(\t\x12\x14\n\x0c\x61sset_amount\x18\x02 \x03(\t\x12\x0c\n\x04\x63\x61sh\x18\x03 \x01(\x02\x12\x0f\n\x07\x62\x65gin_t\x18\x04 \x01(\t\x12\r\n\x05\x65nd_t\x18\x05 \x01(\t\"$\n\x13PortfolioBetaOutput\x12\r\n\x05value\x18\x01 \x01(\x02\"t\n\x15RetrainBetaModelInput\x12\x14\n\x0cprotfolio_id\x18\x01 \x01(\t\x12\x10\n\x08\x61sset_id\x18\x02 \x03(\t\x12\x14\n\x0c\x61sset_amount\x18\x03 \x03(\t\x12\x0c\n\x04\x63\x61sh\x18\x04 \x01(\x02\x12\x0f\n\x07\x66utures\x18\x05 \x01(\t\"\'\n\x16RetrainBetaModelOutput\x12\r\n\x05value\x18\x01 \x01(\t\"\x8b\x01\n\x0c\x46itBetaInput\x12\x14\n\x0cprotfolio_id\x18\x01 \x01(\t\x12\x10\n\x08\x61sset_id\x18\x02 \x03(\t\x12\x14\n\x0c\x61sset_amount\x18\x03 \x03(\t\x12\x0c\n\x04\x63\x61sh\x18\x04 \x01(\x02\x12\x0f\n\x07\x66utures\x18\x05 \x01(\t\x12\x0f\n\x07\x62\x65gin_t\x18\x06 \x01(\t\x12\r\n\x05\x65nd_t\x18\x07 \x01(\t\"\x1e\n\rFitBetaOutput\x12\r\n\x05value\x18\x01 \x03(\x02\"J\n\x11\x43\x61lFutureAmtInput\x12\x13\n\x0btotal_value\x18\x01 \x01(\x02\x12\x0f\n\x07\x66utures\x18\x02 \x01(\t\x12\x0f\n\x07portion\x18\x03 \x01(\x02\"#\n\x12\x43\x61lFutureAmtOutput\x12\r\n\x05value\x18\x01 \x01(\x05\"e\n\x1cGenerateRecommendFutureInput\x12\x10\n\x08\x61sset_id\x18\x01 \x03(\t\x12\x14\n\x0c\x61sset_amount\x18\x02 \x03(\t\x12\x0c\n\x04\x63\x61sh\x18\x03 \x01(\x02\x12\x0f\n\x07\x62\x65gin_t\x18\x04 \x01(\t\".\n\x1dGenerateRecommendFutureOutput\x12\r\n\x05value\x18\x01 \x03(\t2\xb9\n\n\rOptionFutures\x12?\n\x0ePortfolioDelta\x12\x14.PortfolioDeltaInput\x1a\x15.PortfolioDeltaOutput\"\x00\x12?\n\x0ePortfolioGamma\x12\x14.PortfolioGammaInput\x1a\x15.PortfolioGammaOutput\"\x00\x12<\n\rPortfolioVega\x12\x13.PortfolioVegaInput\x1a\x14.PortfolioVegaOutput\"\x00\x12?\n\x0ePortfolioTheta\x12\x14.PortfolioThetaInput\x1a\x15.PortfolioThetaOutput\"\x00\x12\x39\n\x0cPortfolioRho\x12\x12.PortfolioRhoInput\x1a\x13.PortfolioRhoOutput\"\x00\x12N\n\x13PortfolioVolatility\x12\x19.PortfolioVolatilityInput\x1a\x1a.PortfolioVolatilityOutput\"\x00\x12Q\n\x14PortfolioEarningRate\x12\x1a.PortfolioEarningRateInput\x1a\x1b.PortfolioEarningRateOutput\"\x00\x12H\n\x11RetrainDeltaModel\x12\x17.RetrainDeltaModelInput\x1a\x18.RetrainDeltaModelOutput\"\x00\x12H\n\x11RetrainGammaModel\x12\x17.RetrainGammaModelInput\x1a\x18.RetrainGammaModelOutput\"\x00\x12-\n\x08\x46itDelta\x12\x0e.FitDeltaInput\x1a\x0f.FitDeltaOutput\"\x00\x12-\n\x08\x46itGamma\x12\x0e.FitGammaInput\x1a\x0f.FitGammaOutput\"\x00\x12\x39\n\x0c\x43\x61lOptionAmt\x12\x12.CalOptionAmtInput\x1a\x13.CalOptionAmtOutput\"\x00\x12i\n\x1cGenerateRecommendOptionDelta\x12\".GenerateRecommendOptionDeltaInput\x1a#.GenerateRecommendOptionDeltaOutput\"\x00\x12i\n\x1cGenerateRecommendOptionGamma\x12\".GenerateRecommendOptionGammaInput\x1a#.GenerateRecommendOptionGammaOutput\"\x00\x12<\n\rPortfolioBeta\x12\x13.PortfolioBetaInput\x1a\x14.PortfolioBetaOutput\"\x00\x12\x45\n\x10RetrainBetaModel\x12\x16.RetrainBetaModelInput\x1a\x17.RetrainBetaModelOutput\"\x00\x12*\n\x07\x46itBeta\x12\r.FitBetaInput\x1a\x0e.FitBetaOutput\"\x00\x12\x39\n\x0c\x43\x61lFutureAmt\x12\x12.CalFutureAmtInput\x1a\x13.CalFutureAmtOutput\"\x00\x12Z\n\x17GenerateRecommendFuture\x12\x1d.GenerateRecommendFutureInput\x1a\x1e.GenerateRecommendFutureOutput\"\x00\x42\x35\n\x1f\x63om.example.ffbackend.rpc.protoB\x12OptionFuturesProtob\x06proto3')
+  serialized_pb=_b('\n\x14option_futures.proto\"k\n\x13PortfolioDeltaInput\x12\x10\n\x08\x61sset_id\x18\x01 \x03(\t\x12\x14\n\x0c\x61sset_amount\x18\x02 \x03(\t\x12\x0c\n\x04\x63\x61sh\x18\x03 \x01(\x02\x12\x0f\n\x07\x62\x65gin_t\x18\x04 \x01(\t\x12\r\n\x05\x65nd_t\x18\x05 \x01(\t\"%\n\x14PortfolioDeltaOutput\x12\r\n\x05value\x18\x01 \x03(\t\"k\n\x13PortfolioGammaInput\x12\x10\n\x08\x61sset_id\x18\x01 \x03(\t\x12\x14\n\x0c\x61sset_amount\x18\x02 \x03(\t\x12\x0c\n\x04\x63\x61sh\x18\x03 \x01(\x02\x12\x0f\n\x07\x62\x65gin_t\x18\x04 \x01(\t\x12\r\n\x05\x65nd_t\x18\x05 \x01(\t\"%\n\x14PortfolioGammaOutput\x12\r\n\x05value\x18\x01 \x03(\t\"j\n\x12PortfolioVegaInput\x12\x10\n\x08\x61sset_id\x18\x01 \x03(\t\x12\x14\n\x0c\x61sset_amount\x18\x02 \x03(\t\x12\x0c\n\x04\x63\x61sh\x18\x03 \x01(\x02\x12\x0f\n\x07\x62\x65gin_t\x18\x04 \x01(\t\x12\r\n\x05\x65nd_t\x18\x05 \x01(\t\"$\n\x13PortfolioVegaOutput\x12\r\n\x05value\x18\x01 \x03(\t\"k\n\x13PortfolioThetaInput\x12\x10\n\x08\x61sset_id\x18\x01 \x03(\t\x12\x14\n\x0c\x61sset_amount\x18\x02 \x03(\t\x12\x0c\n\x04\x63\x61sh\x18\x03 \x01(\x02\x12\x0f\n\x07\x62\x65gin_t\x18\x04 \x01(\t\x12\r\n\x05\x65nd_t\x18\x05 \x01(\t\"%\n\x14PortfolioThetaOutput\x12\r\n\x05value\x18\x01 \x03(\t\"i\n\x11PortfolioRhoInput\x12\x10\n\x08\x61sset_id\x18\x01 \x03(\t\x12\x14\n\x0c\x61sset_amount\x18\x02 \x03(\t\x12\x0c\n\x04\x63\x61sh\x18\x03 \x01(\x02\x12\x0f\n\x07\x62\x65gin_t\x18\x04 \x01(\t\x12\r\n\x05\x65nd_t\x18\x05 \x01(\t\"#\n\x12PortfolioRhoOutput\x12\r\n\x05value\x18\x01 \x03(\t\"~\n\x18PortfolioVolatilityInput\x12\x10\n\x08\x61sset_id\x18\x01 \x03(\t\x12\x14\n\x0c\x61sset_amount\x18\x02 \x03(\t\x12\x0c\n\x04\x63\x61sh\x18\x03 \x01(\x02\x12\x0f\n\x07\x62\x65gin_t\x18\x04 \x01(\t\x12\r\n\x05\x65nd_t\x18\x05 \x01(\t\x12\x0c\n\x04time\x18\x06 \x01(\x05\"*\n\x19PortfolioVolatilityOutput\x12\r\n\x05value\x18\x01 \x03(\t\"\x7f\n\x19PortfolioEarningRateInput\x12\x10\n\x08\x61sset_id\x18\x01 \x03(\t\x12\x14\n\x0c\x61sset_amount\x18\x02 \x03(\t\x12\x0c\n\x04\x63\x61sh\x18\x03 \x01(\x02\x12\x0f\n\x07\x62\x65gin_t\x18\x04 \x01(\t\x12\r\n\x05\x65nd_t\x18\x05 \x01(\t\x12\x0c\n\x04time\x18\x06 \x01(\x05\"+\n\x1aPortfolioEarningRateOutput\x12\r\n\x05value\x18\x01 \x03(\t\"u\n\x16RetrainDeltaModelInput\x12\x14\n\x0cprotfolio_id\x18\x01 \x01(\t\x12\x10\n\x08\x61sset_id\x18\x02 \x03(\t\x12\x14\n\x0c\x61sset_amount\x18\x03 \x03(\t\x12\x0c\n\x04\x63\x61sh\x18\x04 \x01(\x02\x12\x0f\n\x07options\x18\x05 \x01(\t\"(\n\x17RetrainDeltaModelOutput\x12\r\n\x05value\x18\x01 \x01(\t\"\x88\x01\n\x16RetrainGammaModelInput\x12\x14\n\x0cprotfolio_id\x18\x01 \x01(\t\x12\x10\n\x08\x61sset_id\x18\x02 \x03(\t\x12\x14\n\x0c\x61sset_amount\x18\x03 \x03(\t\x12\x0c\n\x04\x63\x61sh\x18\x04 \x01(\x02\x12\x10\n\x08options1\x18\x05 \x01(\t\x12\x10\n\x08options2\x18\x06 \x01(\t\"(\n\x17RetrainGammaModelOutput\x12\r\n\x05value\x18\x01 \x01(\t\"\x8c\x01\n\rFitDeltaInput\x12\x14\n\x0cprotfolio_id\x18\x01 \x01(\t\x12\x10\n\x08\x61sset_id\x18\x02 \x03(\t\x12\x14\n\x0c\x61sset_amount\x18\x03 \x03(\t\x12\x0c\n\x04\x63\x61sh\x18\x04 \x01(\x02\x12\x0f\n\x07options\x18\x05 \x01(\t\x12\x0f\n\x07\x62\x65gin_t\x18\x06 \x01(\t\x12\r\n\x05\x65nd_t\x18\x07 \x01(\t\"\x1f\n\x0e\x46itDeltaOutput\x12\r\n\x05value\x18\x01 \x03(\x02\"\x9f\x01\n\rFitGammaInput\x12\x14\n\x0cprotfolio_id\x18\x01 \x01(\t\x12\x10\n\x08\x61sset_id\x18\x02 \x03(\t\x12\x14\n\x0c\x61sset_amount\x18\x03 \x03(\t\x12\x0c\n\x04\x63\x61sh\x18\x04 \x01(\x02\x12\x10\n\x08options1\x18\x05 \x01(\t\x12\x10\n\x08options2\x18\x06 \x01(\t\x12\x0f\n\x07\x62\x65gin_t\x18\x07 \x01(\t\x12\r\n\x05\x65nd_t\x18\x08 \x01(\t\"\x1f\n\x0e\x46itGammaOutput\x12\r\n\x05value\x18\x01 \x03(\x02\"W\n\x11\x43\x61lOptionAmtInput\x12\x13\n\x0btotal_value\x18\x01 \x01(\x02\x12\x0e\n\x06option\x18\x02 \x01(\t\x12\x0f\n\x07portion\x18\x03 \x01(\x02\x12\x0c\n\x04time\x18\x04 \x01(\t\"#\n\x12\x43\x61lOptionAmtOutput\x12\r\n\x05value\x18\x01 \x01(\x05\"o\n!GenerateRecommendOptionDeltaInput\x12\x14\n\x0cprotfolio_id\x18\x01 \x01(\t\x12\x10\n\x08\x61sset_id\x18\x02 \x03(\t\x12\x14\n\x0c\x61sset_amount\x18\x03 \x03(\t\x12\x0c\n\x04\x63\x61sh\x18\x04 \x01(\x02\"3\n\"GenerateRecommendOptionDeltaOutput\x12\r\n\x05value\x18\x01 \x03(\t\"o\n!GenerateRecommendOptionGammaInput\x12\x14\n\x0cprotfolio_id\x18\x01 \x01(\t\x12\x10\n\x08\x61sset_id\x18\x02 \x03(\t\x12\x14\n\x0c\x61sset_amount\x18\x03 \x03(\t\x12\x0c\n\x04\x63\x61sh\x18\x04 \x01(\x02\"3\n\"GenerateRecommendOptionGammaOutput\x12\r\n\x05value\x18\x01 \x03(\t\"6\n\x12PortfolioBetaInput\x12\x10\n\x08\x61sset_id\x18\x01 \x03(\t\x12\x0e\n\x06weight\x18\x02 \x03(\x05\"$\n\x13PortfolioBetaOutput\x12\r\n\x05value\x18\x01 \x01(\x02\"t\n\x15RetrainBetaModelInput\x12\x14\n\x0cprotfolio_id\x18\x01 \x01(\t\x12\x10\n\x08\x61sset_id\x18\x02 \x03(\t\x12\x14\n\x0c\x61sset_amount\x18\x03 \x03(\t\x12\x0c\n\x04\x63\x61sh\x18\x04 \x01(\x02\x12\x0f\n\x07\x66utures\x18\x05 \x01(\t\"\'\n\x16RetrainBetaModelOutput\x12\r\n\x05value\x18\x01 \x01(\t\"k\n\x0c\x46itBetaInput\x12\x14\n\x0cprotfolio_id\x18\x01 \x01(\t\x12\x10\n\x08\x61sset_id\x18\x02 \x03(\t\x12\x14\n\x0c\x61sset_amount\x18\x03 \x03(\t\x12\x0c\n\x04\x63\x61sh\x18\x04 \x01(\x02\x12\x0f\n\x07\x66utures\x18\x05 \x01(\t\"\x1e\n\rFitBetaOutput\x12\r\n\x05value\x18\x01 \x03(\x02\"[\n\x11\x43\x61lFutureAmtInput\x12\x13\n\x0btotal_value\x18\x01 \x01(\x02\x12\x0f\n\x07\x66utures\x18\x02 \x01(\t\x12\x0f\n\x07portion\x18\x03 \x01(\x02\x12\x0f\n\x07\x62\x65gin_t\x18\x04 \x01(\t\"#\n\x12\x43\x61lFutureAmtOutput\x12\r\n\x05value\x18\x01 \x01(\x05\"e\n\x1cGenerateRecommendFutureInput\x12\x10\n\x08\x61sset_id\x18\x01 \x03(\t\x12\x14\n\x0c\x61sset_amount\x18\x02 \x03(\t\x12\x0c\n\x04\x63\x61sh\x18\x03 \x01(\x02\x12\x0f\n\x07\x62\x65gin_t\x18\x04 \x01(\t\".\n\x1dGenerateRecommendFutureOutput\x12\r\n\x05value\x18\x01 \x03(\t2\xb9\n\n\rOptionFutures\x12?\n\x0ePortfolioDelta\x12\x14.PortfolioDeltaInput\x1a\x15.PortfolioDeltaOutput\"\x00\x12?\n\x0ePortfolioGamma\x12\x14.PortfolioGammaInput\x1a\x15.PortfolioGammaOutput\"\x00\x12<\n\rPortfolioVega\x12\x13.PortfolioVegaInput\x1a\x14.PortfolioVegaOutput\"\x00\x12?\n\x0ePortfolioTheta\x12\x14.PortfolioThetaInput\x1a\x15.PortfolioThetaOutput\"\x00\x12\x39\n\x0cPortfolioRho\x12\x12.PortfolioRhoInput\x1a\x13.PortfolioRhoOutput\"\x00\x12N\n\x13PortfolioVolatility\x12\x19.PortfolioVolatilityInput\x1a\x1a.PortfolioVolatilityOutput\"\x00\x12Q\n\x14PortfolioEarningRate\x12\x1a.PortfolioEarningRateInput\x1a\x1b.PortfolioEarningRateOutput\"\x00\x12H\n\x11RetrainDeltaModel\x12\x17.RetrainDeltaModelInput\x1a\x18.RetrainDeltaModelOutput\"\x00\x12H\n\x11RetrainGammaModel\x12\x17.RetrainGammaModelInput\x1a\x18.RetrainGammaModelOutput\"\x00\x12-\n\x08\x46itDelta\x12\x0e.FitDeltaInput\x1a\x0f.FitDeltaOutput\"\x00\x12-\n\x08\x46itGamma\x12\x0e.FitGammaInput\x1a\x0f.FitGammaOutput\"\x00\x12\x39\n\x0c\x43\x61lOptionAmt\x12\x12.CalOptionAmtInput\x1a\x13.CalOptionAmtOutput\"\x00\x12i\n\x1cGenerateRecommendOptionDelta\x12\".GenerateRecommendOptionDeltaInput\x1a#.GenerateRecommendOptionDeltaOutput\"\x00\x12i\n\x1cGenerateRecommendOptionGamma\x12\".GenerateRecommendOptionGammaInput\x1a#.GenerateRecommendOptionGammaOutput\"\x00\x12<\n\rPortfolioBeta\x12\x13.PortfolioBetaInput\x1a\x14.PortfolioBetaOutput\"\x00\x12\x45\n\x10RetrainBetaModel\x12\x16.RetrainBetaModelInput\x1a\x17.RetrainBetaModelOutput\"\x00\x12*\n\x07\x46itBeta\x12\r.FitBetaInput\x1a\x0e.FitBetaOutput\"\x00\x12\x39\n\x0c\x43\x61lFutureAmt\x12\x12.CalFutureAmtInput\x1a\x13.CalFutureAmtOutput\"\x00\x12Z\n\x17GenerateRecommendFuture\x12\x1d.GenerateRecommendFutureInput\x1a\x1e.GenerateRecommendFutureOutput\"\x00\x42\x35\n\x1f\x63om.example.ffbackend.rpc.protoB\x12OptionFuturesProtob\x06proto3')
 )
 
 
@@ -1099,6 +1099,13 @@ _CALOPTIONAMTINPUT = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='CalOptionAmtInput.time', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -1112,7 +1119,7 @@ _CALOPTIONAMTINPUT = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=1817,
-  serialized_end=1890,
+  serialized_end=1904,
 )
 
 
@@ -1142,8 +1149,8 @@ _CALOPTIONAMTOUTPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1892,
-  serialized_end=1927,
+  serialized_start=1906,
+  serialized_end=1941,
 )
 
 
@@ -1194,8 +1201,8 @@ _GENERATERECOMMENDOPTIONDELTAINPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1929,
-  serialized_end=2040,
+  serialized_start=1943,
+  serialized_end=2054,
 )
 
 
@@ -1225,8 +1232,8 @@ _GENERATERECOMMENDOPTIONDELTAOUTPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2042,
-  serialized_end=2093,
+  serialized_start=2056,
+  serialized_end=2107,
 )
 
 
@@ -1238,30 +1245,30 @@ _GENERATERECOMMENDOPTIONGAMMAINPUT = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='asset_id', full_name='GenerateRecommendOptionGammaInput.asset_id', index=0,
-      number=1, type=9, cpp_type=9, label=3,
-      has_default_value=False, default_value=[],
+      name='protfolio_id', full_name='GenerateRecommendOptionGammaInput.protfolio_id', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='asset_amount', full_name='GenerateRecommendOptionGammaInput.asset_amount', index=1,
+      name='asset_id', full_name='GenerateRecommendOptionGammaInput.asset_id', index=1,
       number=2, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='cash', full_name='GenerateRecommendOptionGammaInput.cash', index=2,
-      number=3, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=float(0),
+      name='asset_amount', full_name='GenerateRecommendOptionGammaInput.asset_amount', index=2,
+      number=3, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='begin_t', full_name='GenerateRecommendOptionGammaInput.begin_t', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      name='cash', full_name='GenerateRecommendOptionGammaInput.cash', index=3,
+      number=4, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -1277,8 +1284,8 @@ _GENERATERECOMMENDOPTIONGAMMAINPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2095,
-  serialized_end=2201,
+  serialized_start=2109,
+  serialized_end=2220,
 )
 
 
@@ -1308,8 +1315,8 @@ _GENERATERECOMMENDOPTIONGAMMAOUTPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2203,
-  serialized_end=2254,
+  serialized_start=2222,
+  serialized_end=2273,
 )
 
 
@@ -1328,30 +1335,9 @@ _PORTFOLIOBETAINPUT = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='asset_amount', full_name='PortfolioBetaInput.asset_amount', index=1,
-      number=2, type=9, cpp_type=9, label=3,
+      name='weight', full_name='PortfolioBetaInput.weight', index=1,
+      number=2, type=5, cpp_type=1, label=3,
       has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='cash', full_name='PortfolioBetaInput.cash', index=2,
-      number=3, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=float(0),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='begin_t', full_name='PortfolioBetaInput.begin_t', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='end_t', full_name='PortfolioBetaInput.end_t', index=4,
-      number=5, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -1367,8 +1353,8 @@ _PORTFOLIOBETAINPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2256,
-  serialized_end=2362,
+  serialized_start=2275,
+  serialized_end=2329,
 )
 
 
@@ -1398,8 +1384,8 @@ _PORTFOLIOBETAOUTPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2364,
-  serialized_end=2400,
+  serialized_start=2331,
+  serialized_end=2367,
 )
 
 
@@ -1457,8 +1443,8 @@ _RETRAINBETAMODELINPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2402,
-  serialized_end=2518,
+  serialized_start=2369,
+  serialized_end=2485,
 )
 
 
@@ -1488,8 +1474,8 @@ _RETRAINBETAMODELOUTPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2520,
-  serialized_end=2559,
+  serialized_start=2487,
+  serialized_end=2526,
 )
 
 
@@ -1535,20 +1521,6 @@ _FITBETAINPUT = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='begin_t', full_name='FitBetaInput.begin_t', index=5,
-      number=6, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='end_t', full_name='FitBetaInput.end_t', index=6,
-      number=7, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -1561,8 +1533,8 @@ _FITBETAINPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2562,
-  serialized_end=2701,
+  serialized_start=2528,
+  serialized_end=2635,
 )
 
 
@@ -1592,8 +1564,8 @@ _FITBETAOUTPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2703,
-  serialized_end=2733,
+  serialized_start=2637,
+  serialized_end=2667,
 )
 
 
@@ -1625,6 +1597,13 @@ _CALFUTUREAMTINPUT = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='begin_t', full_name='CalFutureAmtInput.begin_t', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -1637,8 +1616,8 @@ _CALFUTUREAMTINPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2735,
-  serialized_end=2809,
+  serialized_start=2669,
+  serialized_end=2760,
 )
 
 
@@ -1668,8 +1647,8 @@ _CALFUTUREAMTOUTPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2811,
-  serialized_end=2846,
+  serialized_start=2762,
+  serialized_end=2797,
 )
 
 
@@ -1720,8 +1699,8 @@ _GENERATERECOMMENDFUTUREINPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2848,
-  serialized_end=2949,
+  serialized_start=2799,
+  serialized_end=2900,
 )
 
 
@@ -1751,8 +1730,8 @@ _GENERATERECOMMENDFUTUREOUTPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2951,
-  serialized_end=2997,
+  serialized_start=2902,
+  serialized_end=2948,
 )
 
 DESCRIPTOR.message_types_by_name['PortfolioDeltaInput'] = _PORTFOLIODELTAINPUT
@@ -2070,8 +2049,8 @@ _OPTIONFUTURES = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=3000,
-  serialized_end=4337,
+  serialized_start=2951,
+  serialized_end=4288,
   methods=[
   _descriptor.MethodDescriptor(
     name='PortfolioDelta',

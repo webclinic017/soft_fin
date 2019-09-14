@@ -48,7 +48,7 @@ class OptionFuturesService(option_futures_pb2_grpc.OptionFuturesServicer):
     def PortfolioEarningRate(self, request, context):
         print("request: ", request)
         res = api.portfolio_earning_rate(
-            request.asset_id, request.asset_amount, request.cash, request.begin_t, request.end_t)
+            request.asset_id, request.asset_amount, request.cash, request.begin_t, request.end_t, request.time)
         return option_futures_pb2.PortfolioEarningRateOutput(value=res)
 
     def RetrainDeltaModel(self, request, context):
@@ -85,7 +85,7 @@ class OptionFuturesService(option_futures_pb2_grpc.OptionFuturesServicer):
     def CalOptionAmt(self, request, context):
         print("request: ", request)
         res = api.cal_option_amt(
-            request.total_value, request.option, request.portion
+            request.total_value, request.option, request.portion, request.time
         )
         return option_futures_pb2.CalOptionAmtOutput(value=res)
 
@@ -111,15 +111,33 @@ class OptionFuturesService(option_futures_pb2_grpc.OptionFuturesServicer):
 
     def PortfolioBeta(self, request, context):
         print("request: ", request)
+        res = api.get_portfolio_beta(request.asset_id, request.weight)
+        return option_futures_pb2.PortfolioBetaOutput(value=res)
 
     def RetrainBetaModel(self, request, context):
         print("request: ", request)
+        res = api.retrain_beta_model(
+            request.protfolio_id, request.asset_id, request.asset_amount, request.cash, request.futures
+        )
+        return option_futures_pb2.RetrainBetaModelOutput(value=res)
 
     def FitBeta(self, request, context):
         print("request: ", request)
+        res = api.fit_beta(
+            request.protfolio_id, request.asset_id, request.asset_amount, request.cash, request.futures
+        )
+        return option_futures_pb2.FitBetaOutput(value=res)
 
     def CalFutureAmt(self, request, context):
         print("request: ", request)
+        res = api.cal_future_amt(
+            request.total_value, request.futures, request.portion, request.begin_t
+        )
+        return option_futures_pb2.CalFutureAmtOutput(value=res)
 
     def GenerateRecommendFuture(self, request, context):
         print("request: ", request)
+        res = api.generate_recommend_future(
+            request.asset_id, request.asset_amount, request.cash, request.begin_t
+        )
+        return option_futures_pb2.GenerateRecommendFutureOutput(value=res)
