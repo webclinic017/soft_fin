@@ -208,8 +208,8 @@ def pred_stock_return(stock_code,date,method):
 def pred_portfolio_return(portfolio,shares,date,method):
     return graph.get_stock_info.pred_portfolio_return(portfolio,shares,date,method)
 
+import sqlite3
 def get_all_stocks():
-    import sqlite3
     conn = sqlite3.connect('data/fin_set.db')
     cursor = conn.cursor()
     result = cursor.execute('select name from sqlite_master where type="table" order by name')
@@ -220,4 +220,10 @@ def get_all_stocks():
                 all.append(row[0])
     conn.close()
     return all
+    
+def get_stock_histroy(stock_id):
+    conn = sqlite3.connect('data/fin_set.db')
+    cursor = conn.cursor()
+    result = cursor.execute('select date,open,high,low,close,colume,amt from '+stock_id)
+    return result
 
