@@ -88,6 +88,9 @@ def cal_future_change_rate(future, t):
 def generate_recommend_option_delta(protfolio_id, asset_id, asset_mount, cash):
     return backtest.options.generate_recommend_option_delta(protfolio_id, asset_id, asset_mount, cash)
 
+def cal_future_amt(total_value,futures,portion,t1):
+    return return backtest.options.cal_future_amt(total_value,futures,portion,t1)
+
 
 #print(get_portfolio_beta(['000001.SZ', '000010.SZ'], [100, 100]))
 
@@ -208,7 +211,7 @@ def get_all_stocks():
     cursor = conn.cursor()
     result = cursor.execute('select name from sqlite_master where type="table" order by name')
     all = []
-    for row in result:
+    for row in result:  
         if len(row[0])==8:
             if row[0][:2]=='SH' or row[0][:2]=='SZ':
                 all.append(row[0])
