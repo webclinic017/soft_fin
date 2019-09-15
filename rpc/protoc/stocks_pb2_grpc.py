@@ -19,6 +19,11 @@ class StocksStub(object):
         request_serializer=stocks__pb2.GetAllStocksInput.SerializeToString,
         response_deserializer=stocks__pb2.GetAllStocksOutput.FromString,
         )
+    self.GetStockHistory = channel.unary_unary(
+        '/Stocks/GetStockHistory',
+        request_serializer=stocks__pb2.GetStockHistoryInput.SerializeToString,
+        response_deserializer=stocks__pb2.GetStockHistoryOutput.FromString,
+        )
 
 
 class StocksServicer(object):
@@ -32,6 +37,13 @@ class StocksServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
+  def GetStockHistory(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
 
 def add_StocksServicer_to_server(servicer, server):
   rpc_method_handlers = {
@@ -39,6 +51,11 @@ def add_StocksServicer_to_server(servicer, server):
           servicer.GetAllStocks,
           request_deserializer=stocks__pb2.GetAllStocksInput.FromString,
           response_serializer=stocks__pb2.GetAllStocksOutput.SerializeToString,
+      ),
+      'GetStockHistory': grpc.unary_unary_rpc_method_handler(
+          servicer.GetStockHistory,
+          request_deserializer=stocks__pb2.GetStockHistoryInput.FromString,
+          response_serializer=stocks__pb2.GetStockHistoryOutput.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(
