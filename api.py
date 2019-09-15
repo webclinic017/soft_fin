@@ -243,9 +243,9 @@ def options_poundage(NumOfPiece, BCUnitPrice=5):
     return API.Poundage.options_poundage(NumOfPiece, BCUnitPrice)
 
 '''推荐投资组合'''
-import recommend_portfolio
+import e.recommend_portfolio
 def recommend_portfolio(beta_threshold=np.full(factor_num, 0.4), stock_num=10, return_level='low'):
-    return recommend_portfolio.recommend_portfolio(beta_threshold, stock_num, return_level)
+    return e.recommend_portfolio.recommend_portfolio(beta_threshold, stock_num, return_level)
 
 
 # %%================ 此api调用示例 =======================
