@@ -9,7 +9,7 @@ import pandas as pd
 import numpy as np
 import sqlite3
 
-conn = sqlite3.connect('../获取资产的基本数据/fin_set.db')  # 连接到数据库
+conn = sqlite3.connect('data/fin_set.db')  # 连接到数据库
 c = conn.cursor()  # 创建游标
 
 pd.set_option('mode.use_inf_as_na', True)
