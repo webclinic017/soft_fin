@@ -230,3 +230,14 @@ def get_stock_histroy(stock_id):
         tmp.append(i)
     return tmp
 
+
+'''手续费计算'''
+import API.Poundage
+def stock_poundage(DealAmount, BuyIn=True, BCRate=0.002):
+    return API.Poundage.stock_poundage(DealAmount, BuyIn, BCRate)
+
+def future_poundage(DealAmount): 
+    return API.Poundage.future_poundage(DealAmount)
+
+def options_poundage(NumOfPiece, BCUnitPrice=5): 
+    return API.Poundage.options_poundage(NumOfPiece, BCUnitPrice)
