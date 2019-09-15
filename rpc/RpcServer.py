@@ -7,8 +7,9 @@ from rpc.protoc import adjustment_and_triggering_of_portfolio_pb2_grpc
 from rpc.protoc import stocks_pb2_grpc
 from rpc.protoc import option_futures_pb2_grpc
 from rpc.protoc import citibank_api_pb2_grpc
+from rpc.protoc import style_factor_pb2_grpc
 from rpc import RegularAdjustmentService, ConditionalTriggerService, AdjustmentAndTriggeringOfPortfolioService, \
-    StocksService, OptionFuturesService, CitibankApiService
+    StocksService, OptionFuturesService, CitibankApiService, StyleFactorService
 
 _ONE_DAY_IN_SECONDS = 60 * 60 * 24
 
