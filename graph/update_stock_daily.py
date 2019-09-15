@@ -4,53 +4,73 @@ from CNN import final_cnn_predict
 from LSTM import final_lstm_predict
 import numpy as np
 import sqlite3
-import math
-import random
-stock_pool=[]
-
-start = '2018-01-02'
-end = '2019-06-12'
 
 def calc_pred_stock_return(stock_code, date):
         """
         stock_code是形如 SH600000 的字符串
         date是形如 2019-06-01 的字符串
         预测date日期后一天stock_code股票的收益率
+        将预测结果存于数据库中
+        :param stock_code: 股票代码
+        :param date: 日期
+        :return: None
         """
         conn = sqlite3.connect('fin_set.db')
         cursor = conn.cursor()
-        string=[]
+        string1=[]
+        string2=[]
+        string3=[]
+        for i in range(1,8):
+            string1.append('F'+str(i))
         for i in range(1,520):
-            string.append('F'+str(i))
-        for i in range(1,520):
-            string.append('B'+str(i))
-        cmd = ','.join(string)
+            string2.append('B'+str(i))
+
+        for i in range(8,520):
+            string3.append('F'+str(i))
+
+        #获得三个查询列表的的名字
+        cmd1 = ','.join(string1)
+        cmd2 = ','.join(string2)
+        cmd3 = ','.join(string3)
         result = cursor.execute(
-            'select  {}  from {} where date <= {}'.format(cmd,stock_code,'"' + date + '"'))
+            'select  {}  from {} where date <= {}'.format(cmd1,stock_code,'"' + date + '"'))
         count = 0
-        factor=[[] for i in range(519)]
+        factor1=[[] for i in range(5)]
+        factor2=[[] for i in range(514)]
         beta=[0 for i in range(519)]
         for row in result:
-            for i in range(519):
-                factor[i].append(row[i])
-            if count == 0:
-                for j in range(519):
-                    beta[j] = row[519+j]
+            for i in range(5):
+                factor1[i].append(row[i])
+            for i in range(2):
+                factor2[i].append(row[5+i])
             count += 1
             if count == 40:
                 break
+
+        result = cursor.execute(
+            'select  {}  from BETA '.format(cmd2))
+
+        for row in result:
+            for i in range(520):
+                beta[i] = row[i]
+
+        result = cursor.execute(
+            'select  {}  from MARKET '.format(cmd3))
+        for row in result:
+            for i in range(512):
+                factor2[i+2].append(row[i])
 
         result = cursor.execute('select RF from MARKET where date = {}'.format('"' + date + '"'))
         rf = 0
         for row in result:
             rf = row[0]
             break
-        factor1=[]
-        for i in range(5):
-            factor1.append(factor[i])
 
+        #万一预测模型未收敛 则需要处理异常
         try:
+            #用lstm预测
             pf1=final_lstm_predict(factor1)
+            #用cnn预测
             pf2=final_cnn_predict(factor1)
 
             est_r1=rf
@@ -60,21 +80,14 @@ def calc_pred_stock_return(stock_code, date):
                 est_r1+=pf1[i]*beta[i]
                 est_r2+=pf2[i]*beta[i]
 
-            for i in range(5,519):
-                est_r1 += factor[i][-1] * beta[i]
-                est_r2 += factor[i][-1] * beta[i]
+            for i in range(514):
+                est_r1 += factor2[i][-1] * beta[i+5]
+                est_r2 += factor2[i][-1] * beta[i+5]
         except:
             est_r1 = np.random.normal(loc=rf, scale=0.03, size=None)
             est_r2 = np.random.normal(loc=rf, scale=0.03, size=None)
 
-        if math.fabs(est_r1)>0.1:
-            sign = 1 if (random.random() > 0.5 ) else -1
-            est_r1 = sign*0.1*random.random()
-
-        if math.fabs(est_r2)>0.1:
-            sign = 1 if (random.random() > 0.5 ) else -1
-            est_r2 = sign*0.1*random.random()
-
+        #将两种预测的结果存在数据库中
         cursor.execute('update ESTSTK set EST_R = {} where TRADECODE = {} and date = {}'.format(est_r1,stock_code,'"' + date + '"',))
         cursor.execute('update ESTSTK set EST_R_2 = {} where TRADECODE = {} and date = {}'.format(est_r2, stock_code,
                                                                                                 '"' + date + '"', ))
@@ -83,6 +96,12 @@ def calc_pred_stock_return(stock_code, date):
 
 
 def calc_pred_stock_vol(stock_code,date):
+    """
+    将该股票的波动率预测存于数据库中
+    :param stock_code: 股票名称
+    :param date: 日期
+    :return: None
+    """
     conn = sqlite3.connect('fin_set.db')
     cursor = conn.cursor()
     result = cursor.execute(
@@ -98,15 +117,23 @@ def calc_pred_stock_vol(stock_code,date):
     start_date = dates_prices[-1][0]
     portfolio=[stock_code]
     shares=[1]
+    #计算历史波动率
     d,history_vols = portfolio_history_vol(portfolio,shares,start_date,date)
-    ls = lstm_pred(history_vols)
 
+    #用一维lstm预测历史波动率
+    ls = lstm_pred(history_vols)
     pred_vol = ls.predict()
     cursor.execute('update ESTSTK set EST_R = {} where TRADECODE = {} and date = {}'.format(pred_vol,stock_code,'"' + date + '"',))
     conn.commit()
     conn.close()
 
 def update_database_daily(stock_pool,date):
+    """
+    每日更新预测数据库
+    :param stock_pool: 所有股票池
+    :param date: 日期
+    """
+    #对每个股票更新预测表
     for stock_code in stock_pool:
         calc_pred_stock_vol(stock_code,date)
         calc_pred_stock_return(stock_code,date)
@@ -114,7 +141,7 @@ def update_database_daily(stock_pool,date):
 
 
 if __name__ == '__main__':
-    conn = sqlite3.connect('finance_set.db')
+    conn = sqlite3.connect('fin_set.db')
     cursor = conn.cursor()
     # result = cursor.execute('select name from sqlite_master where type="table" order by name')
     # all = []

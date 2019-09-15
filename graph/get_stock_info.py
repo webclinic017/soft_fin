@@ -5,6 +5,13 @@ import numpy as np
 
 #内部函数
 def get_close_price(stock_code,start_date,end_date):
+    """
+    查询从start_date到end_date的收盘价
+    :param stock_code: 股票价格
+    :param start_date: 起始日期
+    :param end_date: 结束日期
+    :return: 列表
+    """
     conn = sqlite3.connect('fin_set.db')
     cursor = conn.cursor()
     result = cursor.execute(
@@ -18,6 +25,13 @@ def get_close_price(stock_code,start_date,end_date):
 
 #内部函数
 def get_N_days_close(stock_code,end_date,day_num=10):
+    """
+    获得从end_date向前day_num天的收盘价
+    :param stock_code: 股票代码
+    :param end_date: 结束日
+    :param day_num: 天数
+    :return: 列表
+    """
     conn = sqlite3.connect('fin_set.db')
     cursor = conn.cursor()
     result = cursor.execute('select date,close from {} where date <= {} order by date desc'.format(stock_code, '"' + end_date + '"'))
@@ -33,8 +47,12 @@ def get_N_days_close(stock_code,end_date,day_num=10):
 
 def portfolio_history_return(portfolio,shares,start_date,end_date):
     """
-        计算portfolio从start_date到end_date的历史收益率 不包括start_date
-        start_date和end_date是形如 2019-06-01的字符串
+    portfolio历史收益率 不包括start_date
+    :param portfolio: 股票代码的列表
+    :param shares: 每个股票的股数
+    :param start_date: 开始日期
+    :param end_date: 结束日期
+    :return: 列表
     """
     prices = []
     for stock_code in portfolio:
@@ -61,7 +79,12 @@ def portfolio_history_return(portfolio,shares,start_date,end_date):
 
 def portfolio_history_vol(portfolio,shares,start_date,end_date):
     """
-    计算portfolio从start_date到end_date的历史收益率的波动率 不包括start_date
+    portfolio历史波动率 不包括start_date
+    :param portfolio: 股票代码的列表
+    :param shares: 每个股票的股数
+    :param start_date: 开始日期
+    :param end_date: 结束日期
+    :return: 列表
     """
     prices=[]
     for stock_code in portfolio:
@@ -95,7 +118,11 @@ def portfolio_history_vol(portfolio,shares,start_date,end_date):
 
 def pred_portfolio_var(portfolio,shares,date):
     """
-        计算portfolio在date的VaR
+    计算portfolio在date的VaR
+    :param portfolio: 股票代码的列表
+    :param shares: 每个股票的股数
+    :param date: 日期
+    :return: float实数
     """
     prices=[]
     for stock_code in portfolio:
@@ -124,6 +151,12 @@ def pred_portfolio_var(portfolio,shares,date):
     return total[-1] - total[-1]*return95
 
 def pred_stock_vol(stock_code,date):
+    """
+    从数据库查询单只股票的预测波动率
+    :param stock_code: 股票代码
+    :param date: 日期
+    :return: float实数
+    """
     conn = sqlite3.connect('fin_set.db')
     cursor = conn.cursor()
     result = cursor.execute('select EST_V from from ESTSTK where TRADECODE = ? and DATE = ?',(stock_code,date,))
@@ -135,6 +168,13 @@ def pred_stock_vol(stock_code,date):
 
 
 def pred_stock_return(stock_code,date,method = 'lstm'):
+    """
+    从数据库查询单只股票的预测收益率
+    :param stock_code: 股票代码
+    :param date: 日期
+    :param method: 默认lstm 否则cnn
+    :return: float实数
+    """
     conn = sqlite3.connect('fin_set.db')
     cursor = conn.cursor()
     if method == 'lstm':
@@ -155,10 +195,12 @@ def pred_stock_return(stock_code,date,method = 'lstm'):
 
 def pred_portfolio_return(portfolio,shares,date,method = 'lstm'):
     """
-    portfolio是包含stock_code的列表,如果是单只股票则只包含一个stock_code即可
-    shares是每个股票数量的列表与stock_code一一对应
-    预测该portfolio在date之后一日的收益率
-    方法默认是lstm
+    预测portfolio收益率
+    :param portfolio: 股票代码的列表
+    :param shares: 每个股票的股数
+    :param date: 日期
+    :param method: 默认lstm 否则lstm
+    :return: float实数
     """
     conn = sqlite3.connect('fin_set.db')
     cursor = conn.cursor()
