@@ -196,8 +196,8 @@ def portfolio_total_value(asset_id, asset_mount, cash, begin_t, end_t, t_before=
             temp = temp.fillna(0)
             if len(temp) != 0:
                 keys += [i]
-                total += [temp['OPEN'] * asset_mount[ii]
-                          * contract_unit['50ETF']]
+                total += [temp['OPEN'] * asset_mount[ii] *
+                          contract_unit['50ETF']]
     if len(total) == 0:
         return pd.DataFrame()
     else:
@@ -237,8 +237,8 @@ def portfolio_vega(asset_id, asset_mount, cash, begin_t, end_t):
             temp = get_options_data(i, begin_t, end_t)
             if len(temp) != 0:
                 keys += [i]
-                total_vega += [temp['VEGA']
-                               * asset_mount[ii] * contract_unit['50ETF']]
+                total_vega += [temp['VEGA'] *
+                               asset_mount[ii] * contract_unit['50ETF']]
     if len(total_vega) == 0:
         return pd.DataFrame()
     else:
@@ -255,8 +255,8 @@ def portfolio_rho(asset_id, asset_mount, cash, begin_t, end_t):
             temp = get_options_data(i, begin_t, end_t)
             if len(temp) != 0:
                 keys += [i]
-                total_rho += [temp['RHO'] * asset_mount[ii]
-                              * contract_unit['50ETF']]
+                total_rho += [temp['RHO'] * asset_mount[ii] *
+                              contract_unit['50ETF']]
     if len(total_rho) == 0:
         return pd.DataFrame()
     else:
@@ -273,8 +273,8 @@ def portfolio_theta(asset_id, asset_mount, cash, begin_t, end_t):
             temp = get_options_data(i, begin_t, end_t)
             if len(temp) != 0:
                 keys += [i]
-                total_theta += [temp['THETA']
-                                * asset_mount[ii] * contract_unit['50ETF']]
+                total_theta += [temp['THETA'] *
+                                asset_mount[ii] * contract_unit['50ETF']]
     if len(total_theta) == 0:
         return pd.DataFrame()
     else:
@@ -294,9 +294,8 @@ def portfolio_volatility(asset_id, asset_mount, cash, begin_t, end_t, time=10):
 
 def portfolio_earning_rate(asset_id, asset_mount, cash, begin_t, end_t, time=10):
     total, _ = portfolio_total_value(
-        asset_id, asset_mount, cash, begin_t, end_t)
-    res = total.diff(1) / total
-    res = res.rolling(time).mean()
+        asset_id, asset_mount, cash, begin_t, end_t, time)
+    res = total.diff(time) / total
     return res.dropna()
 
 
@@ -369,7 +368,7 @@ def load_train_data(asset_id, asset_mount, cash, options, begin_t='', end_t='', 
         if data['US_IMPLIEDVOL'][i] == 0:
             data['US_IMPLIEDVOL'][i] = data['HV_20'][i].deepcopy()
     if train:
-        data=data.dropna()
+        data = data.dropna()
     else:
         data = data.where(data.notnull(), 0)
     if train:
@@ -382,7 +381,7 @@ def load_train_data(asset_id, asset_mount, cash, options, begin_t='', end_t='', 
     else:
         data_train = data[['EXE_PRICE', 's', 'T-t', 'US_IMPLIEDVOL', 'HV_5', 'HV_10', 'HV_15', 'HV_20', 'VOLATILITYRATIO', 'DELTA',
                            'GAMMA', 'VEGA', 'THETA', 'RHO', 'VWAP', 'VOLUME', 'AMT', 'OI_CHG', 'SETTLE', 'HIGH', 'LOW', 'delta_pre', 'real_delta']]
-    data_train=data_train.dropna()
+    data_train = data_train.dropna()
     return data_train
 
 
@@ -440,26 +439,26 @@ def retrain_gamma_model(protfolio_id, asset_id, asset_mount, cash, options1, opt
 def rename_gamma_model(protfolio_id):
     test = 0
     try:
-        model1 = joblib.load(str(protfolio_id)
-                             + "_gamma" + str(10 * test + 1) + ".m")
+        model1 = joblib.load(str(protfolio_id) +
+                             "_gamma" + str(10 * test + 1) + ".m")
     except:
         model1 = train_gamma_model(
             protfolio_id, asset_id, asset_mount, cash, options1, 10 * test + 1)
     try:
-        model2 = joblib.load(str(protfolio_id)
-                             + "_gamma" + str(10 * test + 2) + ".m")
+        model2 = joblib.load(str(protfolio_id) +
+                             "_gamma" + str(10 * test + 2) + ".m")
     except:
         model2 = train_gamma_model(
             protfolio_id, asset_id, asset_mount, cash, options2, 10 * test + 2)
     try:
-        model3 = joblib.load(str(protfolio_id)
-                             + "_delta" + str(10 * test + 1) + ".m")
+        model3 = joblib.load(str(protfolio_id) +
+                             "_delta" + str(10 * test + 1) + ".m")
     except:
         model3 = train_delta_model(
             protfolio_id, asset_id, asset_mount, cash, options1, 10 * test + 1)
     try:
-        model4 = joblib.load(str(protfolio_id)
-                             + "_delta" + str(10 * test + 2) + ".m")
+        model4 = joblib.load(str(protfolio_id) +
+                             "_delta" + str(10 * test + 2) + ".m")
     except:
         model4 = train_delta_model(
             protfolio_id, asset_id, asset_mount, cash, options2, 10 * test + 2)
@@ -474,8 +473,8 @@ def rename_gamma_model(protfolio_id):
 
 def fit_delta(protfolio_id, asset_id, asset_mount, cash, options, begin_t, end_t, test=0):
     try:
-        model = joblib.load(str(protfolio_id)
-                            + "_delta" + str(10 * test) + ".m")
+        model = joblib.load(str(protfolio_id) +
+                            "_delta" + str(10 * test) + ".m")
     except:
         model = train_delta_model(
             protfolio_id, asset_id, asset_mount, cash, options, 10 * test)
@@ -490,26 +489,26 @@ def fit_delta(protfolio_id, asset_id, asset_mount, cash, options, begin_t, end_t
 # 模型预测
 def fit_gamma(protfolio_id, asset_id, asset_mount, cash, options1, options2, begin_t, end_t, test=0):
     try:
-        model1 = joblib.load(str(protfolio_id)
-                             + "_gamma" + str(10 * test + 1) + ".m")
+        model1 = joblib.load(str(protfolio_id) +
+                             "_gamma" + str(10 * test + 1) + ".m")
     except:
         model1 = train_gamma_model(
             protfolio_id, asset_id, asset_mount, cash, options1, 10 * test + 1)
     try:
-        model2 = joblib.load(str(protfolio_id)
-                             + "_gamma" + str(10 * test + 2) + ".m")
+        model2 = joblib.load(str(protfolio_id) +
+                             "_gamma" + str(10 * test + 2) + ".m")
     except:
         model2 = train_gamma_model(
             protfolio_id, asset_id, asset_mount, cash, options2, 10 * test + 2)
     try:
-        model3 = joblib.load(str(protfolio_id)
-                             + "_delta" + str(10 * test + 1) + ".m")
+        model3 = joblib.load(str(protfolio_id) +
+                             "_delta" + str(10 * test + 1) + ".m")
     except:
         model3 = train_delta_model(
             protfolio_id, asset_id, asset_mount, cash, options1, 10 * test + 1)
     try:
-        model4 = joblib.load(str(protfolio_id)
-                             + "_delta" + str(10 * test + 2) + ".m")
+        model4 = joblib.load(str(protfolio_id) +
+                             "_delta" + str(10 * test + 2) + ".m")
     except:
         model4 = train_delta_model(
             protfolio_id, asset_id, asset_mount, cash, options2, 10 * test + 2)
@@ -580,8 +579,8 @@ def train_beta_model(protfolio_id, asset_id, asset_mount, cash, futures, num=0):
 # 模型预测
 def fit_beta(protfolio_id, asset_id, asset_mount, cash, futures, test=0):
     try:
-        model = joblib.load(str(protfolio_id) + "_beta"
-                            + str(test * 10) + ".m")
+        model = joblib.load(str(protfolio_id) + "_beta" +
+                            str(test * 10) + ".m")
     except:
         model = train_beta_model(
             protfolio_id, asset_id, asset_mount, cash, futures, test * 10)

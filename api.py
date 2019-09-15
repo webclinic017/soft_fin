@@ -241,3 +241,19 @@ def future_poundage(DealAmount):
 
 def options_poundage(NumOfPiece, BCUnitPrice=5): 
     return API.Poundage.options_poundage(NumOfPiece, BCUnitPrice)
+
+'''推荐投资组合'''
+import recommend_portfolio
+def recommend_portfolio(beta_threshold=np.full(factor_num, 0.4), stock_num=10, return_level='low'):
+    return recommend_portfolio.recommend_portfolio(beta_threshold, stock_num, return_level)
+
+
+# %%================ 此api调用示例 =======================
+
+#rec_portfolio = recommend_portfolio(beta_threshold=np.full(factor_num, 0.45), stock_num=30, return_level='mid')
+# 说明： 均为可选参数，找不到合适解或个股数目要求太多时会提示错误类型
+# 提醒：当return_level设为'high'时，阈值最好不低于0.45，否则可能找不到合适解
+# beta_threshold 默认np.full(factor_num,0.4)
+# stock_num 默认10，不超过32
+# return_level 默认'low'
+#print(rec_portfolio)
