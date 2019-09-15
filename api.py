@@ -226,8 +226,13 @@ def get_stock_histroy(stock_id):
     cursor = conn.cursor()
     result = cursor.execute('select date,open,high,low,close,volume,amt from '+stock_id)
     tmp=[]
+    cursor = conn.cursor()
+    name=cursor.execute('select name from stockinfo where tradecode="'+stock_id[-6:]+"."+stock_id[:2]+'"')
+    for i in name:
+        name_new=i
     for i in result:
-        tmp.append(i)
+        tmp.append(i+name_new)
+        print(i)
     return tmp
 
 
@@ -244,7 +249,7 @@ def options_poundage(NumOfPiece, BCUnitPrice=5):
 
 '''推荐投资组合'''
 import e.recommend_portfolio
-def recommend_portfolio(beta_threshold=np.full(factor_num, 0.4), stock_num=10, return_level='low'):
+def recommend_portfolio(beta_threshold, stock_num=10, return_level='low'):
     return e.recommend_portfolio.recommend_portfolio(beta_threshold, stock_num, return_level)
 
 
