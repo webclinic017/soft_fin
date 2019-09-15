@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='',
   syntax='proto3',
   serialized_options=_b('\n\037com.example.ffbackend.rpc.protoB\013StocksProto'),
-  serialized_pb=_b('\n\x0cstocks.proto\"\x13\n\x11GetAllStocksInput\"#\n\x12GetAllStocksOutput\x12\r\n\x05value\x18\x01 \x03(\t2C\n\x06Stocks\x12\x39\n\x0cGetAllStocks\x12\x12.GetAllStocksInput\x1a\x13.GetAllStocksOutput\"\x00\x42.\n\x1f\x63om.example.ffbackend.rpc.protoB\x0bStocksProtob\x06proto3')
+  serialized_pb=_b('\n\x0cstocks.proto\"\x13\n\x11GetAllStocksInput\"#\n\x12GetAllStocksOutput\x12\r\n\x05value\x18\x01 \x03(\t\"*\n\x14GetStockHistoryInput\x12\x12\n\nstock_code\x18\x01 \x01(\t\";\n\x15GetStockHistoryOutput\x12\"\n\x05value\x18\x01 \x03(\x0b\x32\x13.GetStockHistoryRow\"!\n\x12GetStockHistoryRow\x12\x0b\n\x03row\x18\x01 \x03(\x02\x32\x87\x01\n\x06Stocks\x12\x39\n\x0cGetAllStocks\x12\x12.GetAllStocksInput\x1a\x13.GetAllStocksOutput\"\x00\x12\x42\n\x0fGetStockHistory\x12\x15.GetStockHistoryInput\x1a\x16.GetStockHistoryOutput\"\x00\x42.\n\x1f\x63om.example.ffbackend.rpc.protoB\x0bStocksProtob\x06proto3')
 )
 
 
@@ -79,8 +79,105 @@ _GETALLSTOCKSOUTPUT = _descriptor.Descriptor(
   serialized_end=72,
 )
 
+
+_GETSTOCKHISTORYINPUT = _descriptor.Descriptor(
+  name='GetStockHistoryInput',
+  full_name='GetStockHistoryInput',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='stock_code', full_name='GetStockHistoryInput.stock_code', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=74,
+  serialized_end=116,
+)
+
+
+_GETSTOCKHISTORYOUTPUT = _descriptor.Descriptor(
+  name='GetStockHistoryOutput',
+  full_name='GetStockHistoryOutput',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='GetStockHistoryOutput.value', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=118,
+  serialized_end=177,
+)
+
+
+_GETSTOCKHISTORYROW = _descriptor.Descriptor(
+  name='GetStockHistoryRow',
+  full_name='GetStockHistoryRow',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='row', full_name='GetStockHistoryRow.row', index=0,
+      number=1, type=2, cpp_type=6, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=179,
+  serialized_end=212,
+)
+
+_GETSTOCKHISTORYOUTPUT.fields_by_name['value'].message_type = _GETSTOCKHISTORYROW
 DESCRIPTOR.message_types_by_name['GetAllStocksInput'] = _GETALLSTOCKSINPUT
 DESCRIPTOR.message_types_by_name['GetAllStocksOutput'] = _GETALLSTOCKSOUTPUT
+DESCRIPTOR.message_types_by_name['GetStockHistoryInput'] = _GETSTOCKHISTORYINPUT
+DESCRIPTOR.message_types_by_name['GetStockHistoryOutput'] = _GETSTOCKHISTORYOUTPUT
+DESCRIPTOR.message_types_by_name['GetStockHistoryRow'] = _GETSTOCKHISTORYROW
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 GetAllStocksInput = _reflection.GeneratedProtocolMessageType('GetAllStocksInput', (_message.Message,), dict(
@@ -97,6 +194,27 @@ GetAllStocksOutput = _reflection.GeneratedProtocolMessageType('GetAllStocksOutpu
   ))
 _sym_db.RegisterMessage(GetAllStocksOutput)
 
+GetStockHistoryInput = _reflection.GeneratedProtocolMessageType('GetStockHistoryInput', (_message.Message,), dict(
+  DESCRIPTOR = _GETSTOCKHISTORYINPUT,
+  __module__ = 'stocks_pb2'
+  # @@protoc_insertion_point(class_scope:GetStockHistoryInput)
+  ))
+_sym_db.RegisterMessage(GetStockHistoryInput)
+
+GetStockHistoryOutput = _reflection.GeneratedProtocolMessageType('GetStockHistoryOutput', (_message.Message,), dict(
+  DESCRIPTOR = _GETSTOCKHISTORYOUTPUT,
+  __module__ = 'stocks_pb2'
+  # @@protoc_insertion_point(class_scope:GetStockHistoryOutput)
+  ))
+_sym_db.RegisterMessage(GetStockHistoryOutput)
+
+GetStockHistoryRow = _reflection.GeneratedProtocolMessageType('GetStockHistoryRow', (_message.Message,), dict(
+  DESCRIPTOR = _GETSTOCKHISTORYROW,
+  __module__ = 'stocks_pb2'
+  # @@protoc_insertion_point(class_scope:GetStockHistoryRow)
+  ))
+_sym_db.RegisterMessage(GetStockHistoryRow)
+
 
 DESCRIPTOR._options = None
 
@@ -106,8 +224,8 @@ _STOCKS = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=74,
-  serialized_end=141,
+  serialized_start=215,
+  serialized_end=350,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetAllStocks',
@@ -116,6 +234,15 @@ _STOCKS = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_GETALLSTOCKSINPUT,
     output_type=_GETALLSTOCKSOUTPUT,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetStockHistory',
+    full_name='Stocks.GetStockHistory',
+    index=1,
+    containing_service=None,
+    input_type=_GETSTOCKHISTORYINPUT,
+    output_type=_GETSTOCKHISTORYOUTPUT,
     serialized_options=None,
   ),
 ])
