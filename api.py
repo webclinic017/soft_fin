@@ -231,8 +231,10 @@ def get_stock_histroy(stock_id):
     for i in name:
         name_new=i
     for i in result:
-        tmp.append(i+name_new)
-        print(i)
+        line=(i[0],str(i[1]),str(i[2]),str(i[3]),str(i[4]),str(i[5]),str(i[6]))
+        tmp.append(line)
+        #print(str(i+name_new))
+    print(tmp)
     return tmp
 
 
@@ -251,7 +253,8 @@ def options_poundage(NumOfPiece, BCUnitPrice=5):
 import e.recommend_portfolio
 def recommend_portfolio(beta_threshold, stock_num=10, return_level='low'):
     return e.recommend_portfolio.recommend_portfolio(beta_threshold, stock_num, return_level)
-
+if __name__ == "__main__":
+    get_stock_histroy("SZ000002")
 
 # %%================ 此api调用示例 =======================
 
@@ -262,3 +265,4 @@ def recommend_portfolio(beta_threshold, stock_num=10, return_level='low'):
 # stock_num 默认10，不超过32
 # return_level 默认'low'
 #print(rec_portfolio)
+

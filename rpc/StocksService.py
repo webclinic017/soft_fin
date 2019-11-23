@@ -17,3 +17,5 @@ class StocksService(stocks_pb2_grpc.StocksServicer):
             r = stocks_pb2.GetStockHistoryRow(row=row)
             res.append(r)
         return stocks_pb2.GetStockHistoryOutput(value=res)
+
+
